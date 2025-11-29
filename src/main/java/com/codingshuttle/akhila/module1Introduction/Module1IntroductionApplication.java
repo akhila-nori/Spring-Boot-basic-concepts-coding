@@ -15,8 +15,9 @@ public class Module1IntroductionApplication implements CommandLineRunner {
 		SpringApplication.run(Module1IntroductionApplication.class, args);
     }
 
-    @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) throws Exception{
         psObj.pay();
     }
+
+
 }

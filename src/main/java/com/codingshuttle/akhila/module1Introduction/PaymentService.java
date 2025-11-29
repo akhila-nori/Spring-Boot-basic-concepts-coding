@@ -1,10 +1,24 @@
 package com.codingshuttle.akhila.module1Introduction;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
 @Component
+@Controller
 public class PaymentService {
     public void pay() {
-        System.out.println("Playing ......");
+        System.out.println("Paying ......");
+    }
+
+    @PostConstruct
+    public void afterInit(){
+        System.out.println("Before paying ....");
+    }
+
+    @PreDestroy
+    public void beforeDestory(){
+        System.out.println("After payment is done");
     }
 }
