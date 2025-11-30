@@ -14,8 +14,8 @@ import java.util.Map;
 public class Module1IntroductionApplication implements CommandLineRunner {
 
     //I WANT TO INJECT all implementation class beans (both class beans)
-    @Autowired
-    Map<String, NotificationService> notificationServiceMap = new HashMap<>();
+    @Autowired //this annotation tells Spring to look though its entire Application Context
+    Map<String, NotificationService> notificationServiceMap = new HashMap<>(); //spring automatically collects every single bean that implements the interface
 
 
     public static void main(String[] args) {
@@ -24,8 +24,8 @@ public class Module1IntroductionApplication implements CommandLineRunner {
 
     public void run(String... args) throws Exception{
         for(var ns:notificationServiceMap.entrySet()){
-            System.out.println(ns.getKey()); //Bean name
-            ns.getValue().send("Hello");
+            System.out.println(ns.getKey()); //key is - Bean name in the spring container
+            ns.getValue().send("Hello"); //value is - actual bean instance ie., EmailNotificationService object / SmsNotificationServiceObject EXECUTES send() method on that specific service instance
         }
 
     }
