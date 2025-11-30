@@ -9,14 +9,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Module1IntroductionApplication implements CommandLineRunner {
 
-
+    @Autowired
+    NotificationService notificationServiceObj;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Module1IntroductionApplication.class, args);
     }
 
     public void run(String... args) throws Exception{
-       NotificationService notificationServiceObj = new EmailNotificationService();
        notificationServiceObj.send("Helo");
     }
 
