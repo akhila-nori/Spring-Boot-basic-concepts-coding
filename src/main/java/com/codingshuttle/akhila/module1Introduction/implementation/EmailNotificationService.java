@@ -1,10 +1,12 @@
 package com.codingshuttle.akhila.module1Introduction.implementation;
 
 import com.codingshuttle.akhila.module1Introduction.NotificationService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
-@Primary
+//@Primary
+@Qualifier("emailNotif")
 @Component
 public class EmailNotificationService implements NotificationService {
     @Override
