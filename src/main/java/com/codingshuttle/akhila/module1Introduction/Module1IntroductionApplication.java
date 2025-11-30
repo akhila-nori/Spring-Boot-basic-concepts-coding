@@ -9,15 +9,26 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Module1IntroductionApplication implements CommandLineRunner {
 
-    @Autowired
-    NotificationService notificationServiceObj;
+//    @Autowired
+    NotificationService notificationServiceObj; //dependency injection -- DECLARED IT
 
-	public static void main(String[] args) {
+    public Module1IntroductionApplication(NotificationService notificationServiceObj) {
+        //in a way Module1IntroductionApplication class is dependent upon NotificationService class
+        //notificationServiceObj this object is injected by dependency injection framework
+
+
+        this.notificationServiceObj = notificationServiceObj; //INITIALIZED IT .... constructor dependency injection --> the preferred way of doing dependency injection
+        //we are initiaising this object
+    }
+
+    public static void main(String[] args) {
 		SpringApplication.run(Module1IntroductionApplication.class, args);
     }
 
     public void run(String... args) throws Exception{
        notificationServiceObj.send("Helo");
+
+       this.notificationServiceObj = null;
     }
 
 
