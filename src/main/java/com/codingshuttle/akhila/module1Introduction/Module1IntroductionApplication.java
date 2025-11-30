@@ -13,7 +13,7 @@ public class Module1IntroductionApplication implements CommandLineRunner {
 //    @Autowired
     NotificationService notificationServiceObj; //dependency injection -- DECLARED IT
 
-    public Module1IntroductionApplication(@Qualifier("emailNotif") NotificationService notificationServiceObj) {
+    public Module1IntroductionApplication(NotificationService notificationServiceObj) {
         //in a way Module1IntroductionApplication class is dependent upon NotificationService class
         //notificationServiceObj this object is injected by dependency injection framework
 
